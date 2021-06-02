@@ -1,8 +1,13 @@
 import { Router } from 'express'
-import { getSongs } from '../helpers/index.controller'
+import { getSongs, getSongByID, updateSong, createSong, deleteSong } from '../helpers/index.controller'
 const router = Router()
 
-router.get('/song', getSongs)
-router.get('/song/:id', getSongs)
+//tabla cancion
+router.get('/song', getSongs) 
+router.get('/song/:id', getSongByID)
+router.put('/song', updateSong) 
+router.post('/song/:id', createSong) 
+router.delete('/song', deleteSong) 
+
 
 export default router;

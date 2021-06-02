@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const queries = {
     GET_SONG: `SELECT * FROM cancion`,
     GET_SONG_BY_ID: `SELECT * FROM cancion WHERE cancion_id = $1`,
-    CREATE_SONG: `INSERT INTO cancion (cancion_id, nombre, duracion) VALUES ($1, $2, $3) RETURNING *`,
-    UPDATE_SONG: `UPDATE cancion SET cancion_id = $1, nombre = $2, duracion = $3 RETURNING *`,
+    CREATE_SONG: `INSERT INTO cancion (nombre, duracion) VALUES ($1, $2) RETURNING *`,
+    UPDATE_SONG: `UPDATE cancion SET nombre = $1, duracion = $2 WHERE cancion_id = $3`,
     DELETE_SONG: `DELETE FROM cancion WHERE cancion_id = $1`,
     GET_ARTIST_SONG: `SELECT * FROM cancion_artista`,
     GET_ARTIST_SONG_BY_ID: `SELECT * FROM cancion_artista WHERE id_artista_agrupacion = $1`,
