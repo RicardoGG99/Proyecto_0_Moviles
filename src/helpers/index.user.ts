@@ -1,6 +1,7 @@
 import { genSaltSync, hashSync } from 'bcryptjs';
 import { comparePassword } from '../helpers/index.compare'
 import { Request, Response } from 'express';
+import { createToken } from '../helpers/index.create.token'
 import { QueryResult } from 'pg';
 import { pool } from '../database';
 import queries from '../utils/queries';
@@ -30,10 +31,12 @@ export const LoginUser = async (req: Request, res: Response): Promise<Response> 
 
         const original = response.rows[0].clave
         const userOriginal = response.rows[0].user_name
+        const stringID = id.toString()
 
 
         if(userOriginal === user_name && comparePassword(original, clave)){
-            return res.json(`Sesion iniciada exitosamente con el usuario ${user_name}`)
+            // return res.json(`Sesion iniciada exitosamente con el usuario ${user_name}`)
+            return await res.status(200).json({token: await createToken(stringID ,user_name)})
         }else{
             return res.json('No se pudo iniciar sesion')
         }

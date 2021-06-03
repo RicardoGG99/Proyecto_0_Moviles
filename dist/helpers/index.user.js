@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUser = exports.createUser = exports.updateUser = exports.LoginUser = exports.getUsers = void 0;
 const bcryptjs_1 = require("bcryptjs");
 const index_compare_1 = require("../helpers/index.compare");
+const index_create_token_1 = require("../helpers/index.create.token");
 const database_1 = require("../database");
 const queries_1 = __importDefault(require("../utils/queries"));
 const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -37,8 +38,10 @@ const LoginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         ]);
         const original = response.rows[0].clave;
         const userOriginal = response.rows[0].user_name;
+        const stringID = id.toString();
         if (userOriginal === user_name && index_compare_1.comparePassword(original, clave)) {
-            return res.json(`Sesion iniciada exitosamente con el usuario ${user_name}`);
+            // return res.json(`Sesion iniciada exitosamente con el usuario ${user_name}`)
+            return yield res.status(200).json({ token: yield index_create_token_1.createToken(stringID, user_name) });
         }
         else {
             return res.json('No se pudo iniciar sesion');
