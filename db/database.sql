@@ -16,3 +16,8 @@ CREATE TABLE artista_agrupacion(
     nombre_artista_agrupacion VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE usuario(
+    user_id SERIAL PRIMARY KEY,
+    user_name VARCHAR(100) NOT NULL,
+    clave VARCHAR(100) NOT NULL
+);

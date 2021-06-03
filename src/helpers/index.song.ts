@@ -2,10 +2,10 @@ import { Request, Response } from 'express'
 import { pool } from '../database'
 import queries from '../utils/queries'
 import { QueryResult } from 'pg'
-import { parse } from 'dotenv'
 
 export const getSongs = async (req: Request, res: Response): Promise<Response> => {
     try {
+
         const response: QueryResult = await pool.query(queries.GET_SONG);
     return res.status(200).json(response.rows)
     } catch (error) {
@@ -34,13 +34,14 @@ export const getSongByID = async (req: Request, res: Response): Promise<Response
 
 //Arreglar para que verifique si existe el user
 export const updateSong = async (req: Request, res: Response): Promise<Response> => {
-    
-    const { nombre, duracion, cancion_id } = req.body
+    const id = parseInt(req.params.id)
+
+    const { nombre, duracion } = req.body
 
     const response: QueryResult = await pool.query(queries.UPDATE_SONG, [
         nombre, 
         duracion,
-        cancion_id
+        id
     ]);
 
     return res.json({
@@ -48,7 +49,7 @@ export const updateSong = async (req: Request, res: Response): Promise<Response>
             body: {
                 nombre,
                 duracion,
-                cancion_id
+                id
             }
         })
 
@@ -58,16 +59,17 @@ export const updateSong = async (req: Request, res: Response): Promise<Response>
 export const createSong = async (req: Request, res: Response): Promise<Response> => {
     
     try {
-        const { cancion_id, nombre, duracion } = req.body
+
+        const { nombre, duracion } = req.body
         const response: QueryResult = await pool.query(queries.CREATE_SONG, [
             nombre,
             duracion
         ]);
         
+        
         return res.json({
             message: "Cancion insertada satisfactoriamente",
             body: {
-                cancion_id,
                 nombre,
                 duracion
             }
@@ -85,13 +87,13 @@ export const createSong = async (req: Request, res: Response): Promise<Response>
 export const deleteSong = async (req: Request, res: Response): Promise<Response> => {
     
     try {
-        const { cancion_id } = req.body
+        const id = parseInt(req.params.id)
 
         const response: QueryResult = await pool.query(queries.DELETE_SONG, [
-            parseInt(cancion_id) 
+            id
         ]);
 
-        return res.json(`Cancion con el id ${cancion_id} eliminada satisfactoriamente`)
+        return res.json(`Cancion con el id ${id} eliminada satisfactoriamente`)
         
     } catch (error) {
         console.log(error)
