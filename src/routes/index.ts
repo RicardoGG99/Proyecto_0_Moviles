@@ -34,8 +34,6 @@ router.get('/user/:id', LoginUser)
 router.put('/user/:id', updateUser) 
 router.post('/user', createUser) 
 router.delete('/user/:id', deleteUser) 
-router.post('/artist/:id', createArtist) 
-router.delete('/artist/:id', deleteArtist) 
 
 
 export default router;

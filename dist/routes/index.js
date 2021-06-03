@@ -31,6 +31,4 @@ router.get('/user/:id', index_user_1.LoginUser);
 router.put('/user/:id', index_user_1.updateUser);
 router.post('/user', index_user_1.createUser);
 router.delete('/user/:id', index_user_1.deleteUser);
-router.post('/artist/:id', index_artist_1.createArtist);
-router.delete('/artist/:id', index_artist_1.deleteArtist);
 exports.default = router;

@@ -47,8 +47,7 @@ const updateSongArtist = (req, res) => __awaiter(void 0, void 0, void 0, functio
     const response = yield database_1.pool.query(queries_1.default.UPDATE_ARTIST_SONG, [
         cancion_id,
         id_artista_agrupacion,
-        id,
-        id_artista_agrupacion
+        id
     ]);
     return res.json({
         message: "Cancion/Artista actualizada satisfactoriamente",
