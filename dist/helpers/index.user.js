@@ -112,9 +112,6 @@ const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     try {
         const id = parseInt(req.params.id);
         const { clave } = req.body;
-        // //Encriptar clave para compararla con la original (medida de seguridad)
-        // const salt = genSaltSync(10);
-        // const newClave = hashSync(clave, salt);
         const comp = yield database_1.pool.query(queries_1.default.RETURN_PASS_USER, [
             id
         ]);

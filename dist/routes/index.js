@@ -11,6 +11,7 @@ router.get('/song', index_song_1.getSongs);
 router.get('/song/:id', index_song_1.getSongByID);
 router.put('/song/:id', index_song_1.updateSong);
 router.post('/song', index_song_1.createSong);
+router.post('/song/:id', index_song_1.createSong);
 router.delete('/song/:id', index_song_1.deleteSong);
 //tabla cancion_artista
 router.get('/songart', index_song_artist_1.getSongsArtist);
@@ -30,4 +31,6 @@ router.get('/user/:id', index_user_1.LoginUser);
 router.put('/user/:id', index_user_1.updateUser);
 router.post('/user', index_user_1.createUser);
 router.delete('/user/:id', index_user_1.deleteUser);
+router.post('/artist/:id', index_artist_1.createArtist);
+router.delete('/artist/:id', index_artist_1.deleteArtist);
 exports.default = router;

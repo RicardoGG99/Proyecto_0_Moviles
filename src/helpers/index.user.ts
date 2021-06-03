@@ -1,6 +1,6 @@
 import { genSaltSync, hashSync } from 'bcryptjs';
 import { comparePassword } from '../helpers/index.compare'
-import e, { Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { QueryResult } from 'pg';
 import { pool } from '../database';
 import queries from '../utils/queries';

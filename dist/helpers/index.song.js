@@ -62,6 +62,7 @@ const updateSong = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 exports.updateSong = updateSong;
 const createSong = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const id = parseInt(req.params.id);
         const { nombre, duracion } = req.body;
         const response = yield database_1.pool.query(queries_1.default.CREATE_SONG, [
             nombre,
@@ -70,6 +71,7 @@ const createSong = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         return res.json({
             message: "Cancion insertada satisfactoriamente",
             body: {
+                id,
                 nombre,
                 duracion
             }
