@@ -128,10 +128,6 @@ export const deleteUser = async (req: Request, res: Response): Promise<Response>
 
         const { clave } = req.body
 
-        // //Encriptar clave para compararla con la original (medida de seguridad)
-        // const salt = genSaltSync(10);
-        // const newClave = hashSync(clave, salt);
-
         const comp: QueryResult = await pool.query(queries.RETURN_PASS_USER, [
             id
         ]);

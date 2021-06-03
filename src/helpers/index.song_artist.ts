@@ -34,21 +34,20 @@ export const getSongArtistByID = async (req: Request, res: Response): Promise<Re
 //Arreglar para que verifique si existe el user
 export const updateSongArtist = async (req: Request, res: Response): Promise<Response> => {
     
-<<<<<<< HEAD
+
     const id = parseInt(req.params.id)
 
-=======
->>>>>>> e7ec06fe8cc906b0d5738853703ee352edac8727
+
+
     const { cancion_id, id_artista_agrupacion } = req.body
 
     const response: QueryResult = await pool.query(queries.UPDATE_ARTIST_SONG, [
         cancion_id, 
-<<<<<<< HEAD
+
         id_artista_agrupacion,
-        id
-=======
+        id,
         id_artista_agrupacion
->>>>>>> e7ec06fe8cc906b0d5738853703ee352edac8727
+
     ]);
 
     return res.json({

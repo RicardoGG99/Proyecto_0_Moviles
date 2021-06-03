@@ -59,10 +59,8 @@ export const updateSong = async (req: Request, res: Response): Promise<Response>
 export const createSong = async (req: Request, res: Response): Promise<Response> => {
     
     try {
-<<<<<<< HEAD:src/helpers/index.song.ts
-=======
+
         const id = parseInt(req.params.id)
->>>>>>> e7ec06fe8cc906b0d5738853703ee352edac8727:src/helpers/index.controller.ts
 
         const { nombre, duracion } = req.body
         const response: QueryResult = await pool.query(queries.CREATE_SONG, [
@@ -74,10 +72,7 @@ export const createSong = async (req: Request, res: Response): Promise<Response>
         return res.json({
             message: "Cancion insertada satisfactoriamente",
             body: {
-<<<<<<< HEAD:src/helpers/index.song.ts
-=======
                 id,
->>>>>>> e7ec06fe8cc906b0d5738853703ee352edac8727:src/helpers/index.controller.ts
                 nombre,
                 duracion
             }
