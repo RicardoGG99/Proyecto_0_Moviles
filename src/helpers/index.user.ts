@@ -37,11 +37,7 @@ export const LoginUser = async (req: Request, res: Response): Promise<Response> 
         }else{
             return res.json('No se pudo iniciar sesion')
         }
-        
 
-
-
-        return res.status(200).json(response.rows)
 
         
     } catch (error) {

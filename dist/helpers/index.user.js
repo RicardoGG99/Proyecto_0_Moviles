@@ -43,7 +43,6 @@ const LoginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         else {
             return res.json('No se pudo iniciar sesion');
         }
-        return res.status(200).json(response.rows);
     }
     catch (error) {
         console.log(error);
