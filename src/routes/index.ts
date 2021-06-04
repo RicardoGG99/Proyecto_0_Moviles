@@ -1,9 +1,9 @@
-import { Router } from 'express'
+import { response, Router } from 'express'
 import { getSongs, getSongByID, updateSong, createSong, deleteSong } from '../helpers/index.song'
 import { getSongsArtist, getSongArtistByID, updateSongArtist, createSongArtist, deleteSongArtist } from '../helpers/index.song_artist'
 import { getArtist, getArtistByID, updateArtist, createArtist, deleteArtist } from '../helpers/index.artist'
 import { getUsers, LoginUser, updateUser, createUser, deleteUser } from '../helpers/index.user'
-// import { render } from '../helpers/index.file'
+import { render, guardar } from '../helpers/index.file'
 
 const router = Router()
 
@@ -37,7 +37,7 @@ router.post('/user', createUser)
 router.delete('/user/:id', deleteUser) 
 
 // //subida de imagenes
-// router.post('/upload', render)
+
 
 
 export default router;

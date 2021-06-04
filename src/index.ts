@@ -3,6 +3,7 @@ import router from './routes/index'
 import cors from 'cors'
 import path from 'path'
 const multer = require('multer') 
+import fileupload from 'express-fileupload'
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -13,12 +14,20 @@ app.use(router)
 app.use(cors())
 
 //sets
-app.set('views', path.join(__dirname, 'src/views'))
+app.set('views', path.join(__dirname, '../src/views'))
 app.set('view engine', 'ejs')
 
-//Ruta principal
-app.get('/', (req, res) => {
+app.use(multer({
+    dest: path.join(__dirname, '../src/public/imagenes')
+}).single('file'))
+
+router.get('/', async (req, res) => {
     res.render('index')
+})
+
+router.post('/upload', async (req, res) => {
+    await console.log(req.file)
+    res.send('uploaded')
 })
 
 
