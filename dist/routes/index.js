@@ -5,6 +5,7 @@ const index_song_1 = require("../helpers/index.song");
 const index_song_artist_1 = require("../helpers/index.song_artist");
 const index_artist_1 = require("../helpers/index.artist");
 const index_user_1 = require("../helpers/index.user");
+// import { render } from '../helpers/index.file'
 const router = express_1.Router();
 //tabla cancion
 router.get('/song', index_song_1.getSongs);
@@ -31,4 +32,6 @@ router.get('/user/:id', index_user_1.LoginUser);
 router.put('/user/:id', index_user_1.updateUser);
 router.post('/user', index_user_1.createUser);
 router.delete('/user/:id', index_user_1.deleteUser);
+// //subida de imagenes
+// router.post('/upload', render)
 exports.default = router;
