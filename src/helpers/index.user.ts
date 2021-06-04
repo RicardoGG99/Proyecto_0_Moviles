@@ -135,9 +135,7 @@ export const deleteUser = async (req: Request, res: Response): Promise<Response>
             id
         ]);
 
-        const claveHash = comp.rows[0].clave   
-
-        
+        const claveHash = comp.rows[0].clave  
 
          if(await comparePassword(clave, claveHash)){
 
