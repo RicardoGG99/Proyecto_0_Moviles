@@ -23,7 +23,3 @@ exports.guardar = multer_1.default({
     storage: storage,
     limits: { fieldSize: 10 * 1024 * 1024 }
 });
-// export const subir = multer({
-//     guardar,
-//     limits: {fileSize: 1000000}
-// }).single('image');

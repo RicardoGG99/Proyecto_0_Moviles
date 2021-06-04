@@ -31,5 +31,4 @@ router.get('/user/:id', index_user_1.LoginUser);
 router.put('/user/:id', index_user_1.updateUser);
 router.post('/user', index_user_1.createUser);
 router.delete('/user/:id', index_user_1.deleteUser);
-// //subida de imagenes
 exports.default = router;

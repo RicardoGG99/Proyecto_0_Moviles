@@ -3,7 +3,6 @@ import { getSongs, getSongByID, updateSong, createSong, deleteSong } from '../he
 import { getSongsArtist, getSongArtistByID, updateSongArtist, createSongArtist, deleteSongArtist } from '../helpers/index.song_artist'
 import { getArtist, getArtistByID, updateArtist, createArtist, deleteArtist } from '../helpers/index.artist'
 import { getUsers, LoginUser, updateUser, createUser, deleteUser } from '../helpers/index.user'
-import { render, guardar } from '../helpers/index.file'
 
 const router = Router()
 
@@ -35,9 +34,5 @@ router.get('/user/:id', LoginUser)
 router.put('/user/:id', updateUser) 
 router.post('/user', createUser) 
 router.delete('/user/:id', deleteUser) 
-
-// //subida de imagenes
-
-
 
 export default router;

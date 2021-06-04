@@ -29,7 +29,7 @@ app.set('views', path_1.default.join(__dirname, '../src/views'));
 app.set('view engine', 'ejs');
 app.use(multer({
     dest: path_1.default.join(__dirname, '../src/public/imagenes')
-}).single('file'));
+}).single('image'));
 index_1.default.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.render('index');
 }));
